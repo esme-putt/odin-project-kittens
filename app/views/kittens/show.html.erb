@@ -1,0 +1,18 @@
+<h1><%= @kitten.name %></h1>
+
+<h3>Stats</h3>
+<ul>
+    <li>Age: <%= @kitten.age %></li>
+    <li>Cuteness: <%= @kitten.cuteness %></li>
+    <li>Softness: <%= @kitten.softeness %></li>
+</ul>
+
+<%= link_to "Edit", edit_kitten_path(@kitten) %>
+
+<%= form_with model: @kitten, method: :delete, local: true do |form| %>
+  <%= form.submit 'Delete', class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this kitten?' } %>
+<% end %>
+
+<%= link_to 'All Kittens', kittens_path %>
+
+

@@ -1,0 +1,14 @@
+<h1>Kittens</h1>
+
+<ul>
+    <% @kittens.each do |kitten| %>
+        <li>
+            <%= link_to kitten.name, kitten %>
+            <%= form_with model: kitten, method: :delete, local: true do |form| %>
+                <%= form.submit 'Delete', class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this kitten?' } %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to 'New Kitten', new_kitten_path %>
